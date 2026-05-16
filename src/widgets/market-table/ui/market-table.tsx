@@ -9,6 +9,8 @@ import {
   Box,
 } from '@mui/material';
 
+import { useNavigate } from 'react-router';
+
 import type { Coin } from '@/assets/model/types';
 import styles from './MarketTable.module.css';
 
@@ -17,6 +19,7 @@ type Props = {
 };
 
 export const MarketTable = ({ coins }: Props) => {
+  const navigate = useNavigate();
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -30,7 +33,12 @@ export const MarketTable = ({ coins }: Props) => {
         </TableHead>
         <TableBody>
           {coins.map((coin) => (
-            <TableRow key={coin.id}>
+            <TableRow
+              key={coin.id}
+              hover
+              onClick={() => navigate(`/coin/${coin.id}`)}
+              sx={{ cursor: 'pointer' }}
+            >
               <TableCell>
                 <Box className={styles.coinInfo}>
                   <img src={coin.image} alt={coin.name} width={24} />
