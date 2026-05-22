@@ -1,7 +1,6 @@
-import { baseApi } from './baseApi';
+import { baseApi } from '@/shared/api/baseApi';
 import type { Coin } from '@/entities/asset/model/types';
 import type { CoinDetails } from '@/entities/asset/model/types';
-import type { CoinChartResponse } from '@/entities/asset/model/types';
 
 export const assetApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -13,16 +12,7 @@ export const assetApi = baseApi.injectEndpoints({
     getCoinById: builder.query<CoinDetails, string>({
       query: (id) => `/coins/${id}`,
     }),
-
-    getCoinChart: builder.query<
-      CoinChartResponse,
-      { id: string; days: number }
-    >({
-      query: ({ id, days }) =>
-        `/coins/${id}/market_chart?vs_currency=usd&days=${days}`,
-    }),
   }),
 });
 
-export const { useGetAssetsQuery, useGetCoinByIdQuery, useGetCoinChartQuery } =
-  assetApi;
+export const { useGetAssetsQuery, useGetCoinByIdQuery } = assetApi;

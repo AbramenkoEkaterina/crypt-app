@@ -11,7 +11,7 @@ import {
 
 import { useNavigate } from 'react-router';
 
-import type { Coin } from '@/assets/model/types';
+import type { Coin } from '@/entities/asset/model/types';
 import styles from './MarketTable.module.css';
 
 type Props = {

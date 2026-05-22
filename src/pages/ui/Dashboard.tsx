@@ -1,5 +1,5 @@
 import { useGetAssetsQuery } from '@/shared/api/assetApi';
-import { MarketTable } from '@/widgets/market-table/ui/market-table';
+import { MarketTable } from '@/widgets/market-table/market-table';
 import { Loader } from '@/shared/ui/Loader/Loader';
 
 export const Doshboard = () => {
